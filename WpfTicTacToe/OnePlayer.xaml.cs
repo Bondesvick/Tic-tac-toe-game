@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfTicTacToe
 {
@@ -22,7 +13,8 @@ namespace WpfTicTacToe
     {
         #region Private Members
 
-        Random rnd = new Random();
+        private Random rnd = new Random();
+
         /// <summary>
         /// Holds the current result of text in the active game
         /// </summary>
@@ -43,16 +35,18 @@ namespace WpfTicTacToe
         /// </summary>
         private bool aWin;
 
-        #endregion
+        #endregion Private Members
 
         #region Constructor
+
         public OnePlayer()
         {
             InitializeComponent();
 
             NewGame();
         }
-        #endregion
+
+        #endregion Constructor
 
         /// <summary>
         /// Starts a new game and clears all values back to start
@@ -91,7 +85,7 @@ namespace WpfTicTacToe
         private void ComputerPlay(int GridIndex)
         {
             string theIndex = GridIndex.ToString();
-            
+
             Container.Children.Cast<Button>().ToList().ForEach(button =>
             {
                 // Change Background, Foreground and Content to default values
@@ -101,11 +95,10 @@ namespace WpfTicTacToe
 
                 if (button.Uid == theIndex)
                 {
-                        button.Content = "o";
-                        button.Foreground = Brushes.Red;                     
+                    button.Content = "o";
+                    button.Foreground = Brushes.Red;
                 }
-                
-            });  
+            });
         }
 
         /// <summary>
@@ -144,15 +137,10 @@ namespace WpfTicTacToe
 
             // Check for winners
             checkForWinners();
-               
-            
-
-             
 
             // Change Noughts to Green Color
             if (!mPlayer1Turn && aWin == false)
             {
-                
                 int BtnToBeMarked;
                 Random rnd = new Random();
 
@@ -181,15 +169,9 @@ namespace WpfTicTacToe
 
                 //Check for winners
                 checkForWinners();
-
             }
             // Toggling between players turns True/false (If true, it sets it to False, if False, it sets it to True)
             //mPlayer1Turn ^= true;
-
-            
-
-
-
         }
 
         /// <summary>
@@ -272,7 +254,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins");
                 }
             }
-            #endregion
+
+            #endregion Horizontal Wins
 
             #region Vertical Wins
 
@@ -349,7 +332,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins!");
                 }
             }
-            #endregion
+
+            #endregion Vertical Wins
 
             #region Diagonal Wins
 
@@ -402,7 +386,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins!");
                 }
             }
-            #endregion
+
+            #endregion Diagonal Wins
 
             #region No Winners
 
@@ -426,7 +411,7 @@ namespace WpfTicTacToe
                 mPlayer1Turn = true;
             }
 
-            #endregion
+            #endregion No Winners
         }
     }
 }

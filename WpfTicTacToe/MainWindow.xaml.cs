@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfTicTacToe
 {
@@ -22,7 +13,7 @@ namespace WpfTicTacToe
     {
         #region Private Members
 
-        readonly Random rnd = new Random();
+        private readonly Random rnd = new Random();
 
         /// <summary>
         /// Holds the current result of text in the active game
@@ -44,9 +35,10 @@ namespace WpfTicTacToe
         /// </summary>
         private bool aWin;
 
-        #endregion
+        #endregion Private Members
 
         #region Constructor
+
         /// <summary>
         /// Deafault Constructor
         /// </summary>
@@ -56,7 +48,8 @@ namespace WpfTicTacToe
 
             NewGame();
         }
-        #endregion
+
+        #endregion Constructor
 
         /// <summary>
         /// Starts a new game and clears all values back to satrt
@@ -212,7 +205,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins");
                 }
             }
-            #endregion
+
+            #endregion Horizontal Wins
 
             #region Vertical Wins
 
@@ -289,7 +283,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins!");
                 }
             }
-            #endregion
+
+            #endregion Vertical Wins
 
             #region Diagonal Wins
 
@@ -342,7 +337,8 @@ namespace WpfTicTacToe
                     MessageBox.Show("Player Two Wins!");
                 }
             }
-            #endregion
+
+            #endregion Diagonal Wins
 
             #region No Winners
 
@@ -363,11 +359,9 @@ namespace WpfTicTacToe
                 {
                     MessageBox.Show("Nobody Won!");
                 }
-                
-             }
-        
+            }
 
-            #endregion
+            #endregion No Winners
         }
     }
 }
