@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -82,9 +83,11 @@ namespace WpfTicTacToe
         /// </summary>
         /// <param name="GridIndex"></param>
         /// <returns></returns>
-        private void ComputerPlay(int GridIndex)
+        private async Task ComputerPlayAsync(int GridIndex)
         {
             string theIndex = GridIndex.ToString();
+
+            await Task.Delay(2000);
 
             Container.Children.Cast<Button>().ToList().ForEach(button =>
             {
@@ -162,7 +165,7 @@ namespace WpfTicTacToe
                     if (mResults[BtnToBeMarked] == MarkType.Free)
                     {
                         mResults[BtnToBeMarked] = MarkType.Nought;
-                        ComputerPlay(BtnToBeMarked);
+                        ComputerPlayAsync(BtnToBeMarked);
                         mPlayer1Turn = true;
                     }
                 }
