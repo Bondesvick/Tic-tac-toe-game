@@ -87,7 +87,9 @@ namespace WpfTicTacToe
         {
             string theIndex = GridIndex.ToString();
 
+            this.Container.IsEnabled = false;
             await Task.Delay(2000);
+            this.Container.IsEnabled = true;
 
             Container.Children.Cast<Button>().ToList().ForEach(button =>
             {
